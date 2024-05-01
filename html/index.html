@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="A simple Pokédex web page made with PokéAPI">
+    <meta property="og:title" content="WebDex">
+    <meta property="og:type" content="website">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebDex</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>    
+    <header><h1 class="extra-bold white">WebDex</h1></header>
+
+    <main>
+        <form action="../javascript/script.js" method="post" id="form">
+            <label for="entry" class="red bold">Pokedex entry:</label>
+
+            <input type="number" id="entry" class="black bold" min="1" max="1025" onchange="getPokemon(document.getElementById('entry').value)" required>
+        </form>
+
+        <section id="general-info" class="margin-top">
+            <h1 id="name" class="black extra-bold"></h1>
+            <img id="image" src="" alt="Pokemon Image">
+            <span></span>
+        </section>
+
+        <section id="base-stats" class="margin-top bold">
+            <h2>Base Stats (9th Gen):</h2>
+            <span class="green small-margin">
+                <h3>HP</h3>
+                <p id="hp-stat"></p>
+            </span>
+            <span class="yellow small-margin">
+                <h3>Attack</h3>
+                <p id="attack-stat"></p>
+            </span>
+            <span class="brown small-margin">
+                <h3>Defense</h3>
+                <p id="defense-stat"></p>
+            </span>
+            <span class="aqua small-margin">
+                <h3>Special Attack</h3>
+                <p id="special-attack-stat"></p>
+            </span>
+            <span class="blue small-margin">
+                <h3>Special Defense</h3>
+                <p id="special-defense-stat"></p>
+            </span>
+            <span class="purple small-margin">
+                <h3>Speed</h3>
+                <p id="speed-stat"></p>
+            </span>
+        </section>
+
+        <section id="abilities" class="margin-top">
+            <h2>Abilities (9th Gen):</h2>
+            <div id="abilities-spot"></div>
+        </section>
+    </main>
+    <footer><p class="extra-bold white">Hypah - 2024</p></footer>
+
+    <script src="../javascript/script.js"></script>
+</body>
+</html>
