@@ -5,6 +5,11 @@ html, body {
     font-size: 24px;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+}
+
 h1, h2, h3, p, label, input, img {
     margin: 0;
     padding: 0;
@@ -63,6 +68,42 @@ main {
     display: flex;
     justify-content: space-between;
 }
+
+@media screen and ( min-width: 880px ) {
+    html, body {
+        font-size: 32px;
+    }
+    
+    main {
+        padding: 3% 2%;
+    }
+
+    #form {
+        margin: auto;
+        width: 80%;
+    }
+
+    #form > input {
+        width: 15%;
+    }
+
+    .styling-pc {
+        display: flex;
+        justify-content: center;
+    }
+
+    .left-pc {
+        width: 30%;
+        padding-right: 1%;
+        border-right: 2px solid #BC2626;
+    }
+
+    .right-pc {
+        width: 70%;
+        padding-left: 1%;
+    }
+}
+
 
 /** UTILITIES **/
 .margin-top { margin-top: 3%; }
