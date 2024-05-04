@@ -6,26 +6,28 @@
     <meta property="og:title" content="WebDex">
     <meta property="og:type" content="website">
     <meta property="og:description" content="A simple Pokédex web page made with PokéAPI">
-    <meta property="og:image" content="../favicon.ico" />
+    <meta property="og:image" content="https://hypahdokkan.github.io/WebDex/favicon.ico" />
     <meta property="og:url" content="https://hypahdokkan.github.io/WebDex/html/index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebDex</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico"> <!-- Makes the favicon appear in Github Pages -->
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>    
     <header><h1 class="extra-bold white">WebDex</h1></header>
-
+    
     <main>
-        <form action="../javascript/script.js" method="post" id="form" onkeydown="return event.key != 'Enter';">
+        <form action="../javascript/script.js" method="post" id="form">
             <label for="entry" class="red bold">Pokédex entry:</label>
 
-            <input type="number" id="entry" class="black bold" min="1" max="1025" onchange="getPokemon(document.getElementById('entry').value)" required>
+            <input type="text" id="entry" class="black bold" onchange="getPokemon(document.getElementById('entry').value)" required>
+            <button type="submit" disabled class="hidden"></button> <!-- A button used to make sure that you can press submit to get the Pokémon data but not go to the script. -->
         </form>
 
         <section id="general-info" class="margin-top">
             <h1 id="name" class="black extra-bold">Insert a Pokédex entry!</h1>
             <img id="image" src="../questionMark.webp" alt="Pokemon Image">
-            <span></span>
+            <div id="types-spot"></div>
         </section>
 
         <div class="styling-pc">
@@ -64,6 +66,7 @@
         </section>
     </div>
     </main>
+
     <footer><p class="extra-bold white">Hypah - 2024</p></footer>
 
     <script src="../javascript/script.js"></script>

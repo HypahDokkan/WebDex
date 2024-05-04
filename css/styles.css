@@ -46,7 +46,7 @@ main {
     border: 0;
     height: 1.8rem;
     font-size: 1rem;
-    width: 40%;
+    width: 50%;
     text-align: center;
     background-color: #D9D9D9;
     border-radius: 20px;
@@ -60,13 +60,29 @@ main {
     font-size: 1.5rem;
 }
 
-#general-info img {
-    height: 30vh;
+#general-info > img {
+    width: 40vh;
+    image-rendering: pixelated;
 }
 
 #base-stats > span {
     display: flex;
     justify-content: space-between;
+}
+
+#types-spot {
+    display: flex;
+    justify-content: center;
+    column-gap: 10%;
+    padding: 0 5%;
+}
+
+.type {
+    margin-top: 0;
+    padding-top: 0;
+    image-rendering: pixelated;
+    width: 30vh;
+    max-width: 50%;
 }
 
 @media screen and ( min-width: 880px ) {
@@ -84,7 +100,7 @@ main {
     }
 
     #form > input {
-        width: 15%;
+        width: 35%;
     }
 
     .styling-pc {
@@ -135,3 +151,5 @@ main {
 .blue { color: #2E3F96; }
 
 .purple { color: #932D95; }
+
+.hidden { display: none; }

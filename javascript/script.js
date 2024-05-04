@@ -1,3 +1,49 @@
+// Based on the string/type name given, it gives that type's image.
+function getTypeImage(type) {
+    switch(type) {
+        case "bug":
+            return "../images/bug.gif";
+        case "dark":
+            return "../images/dark.gif";
+        case "dragon":
+            return "../images/dragon.gif";
+        case "electric":
+            return "../images/electric.gif";
+        case "fairy":
+            return "../images/fairy.gif";
+        case "fighting":
+            return "../images/fighting.gif";
+        case "fire":
+            return "../images/fire.gif";
+        case "flying":
+            return "../images/flying.gif";
+        case "ghost":
+            return "../images/ghost.gif";
+        case "grass":
+            return "../images/grass.gif";
+        case "ground":
+            return "../images/ground.gif";
+        case "ice":
+            return "../images/ice.gif";
+        case "normal":
+            return "../images/normal.gif";
+        case "poison":
+            return "../images/poison.gif";
+        case "psychic":
+            return "../images/psychic.gif";
+        case "rock":
+            return "../images/rock.gif";
+        case "steel":
+            return "../images/steel.gif";
+        case "water":
+            return "../images/water.gif";
+        
+        default:
+            return;
+    }
+}
+
+
 // Based on the global variable counter, it will give out a color: this is done so as to give each ability title an unique color.
 var counter = 0;
 function getColor() {
@@ -36,6 +82,23 @@ function fetchStart(fetcher) {
         document.getElementById("name").innerText = data.species.name.toUpperCase();
         document.getElementById("image").src = data.sprites.front_default;
         document.getElementById("image").alt = data.species.name.charAt(0).toUpperCase() + data.species.name.slice(1);
+
+        // Clears the div that keeps all the types, for when you select another Pokémon. 
+        document.getElementById("types-spot").innerHTML = "";
+
+        // For every type the Pokémon has, create an image with the info of each type.
+        data.types.forEach(element => {
+            let typesSpot = document.getElementById("types-spot");
+
+            let type = document.createElement("img");
+            type.id = element.type.name;
+            type.src = getTypeImage(element.type.name);
+            // Makes the first letter uppercase.
+            type.alt = element.type.name.charAt(0).toUpperCase() + element.type.name.slice(1);
+            type.classList = "type";
+
+            typesSpot.appendChild(type);
+        });       
 
         document.getElementById("hp-stat").innerText = data.stats[0].base_stat;
         document.getElementById("attack-stat").innerText = data.stats[1].base_stat;
@@ -120,11 +183,7 @@ function fetchStart(fetcher) {
 
 function getPokemon(input) {
         // Takes the number from the input box, puts it inside the URL of PokéAPI and gives it to fetchStart() so that it can start the fetching.
-        let latestValue = input;
-    
-        let fetcher = "https://pokeapi.co/api/v2/pokemon/";
-        
-        fetcher += latestValue.toString();
+        let fetcher = "https://pokeapi.co/api/v2/pokemon/" + input.toLowerCase();
         
         fetchStart(fetcher);
 }
